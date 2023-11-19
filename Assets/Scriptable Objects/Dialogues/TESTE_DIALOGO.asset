@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57e442fee24f2cf40b60d2eeec86f47f, type: 3}
+  m_Name: TESTE_DIALOGO
+  m_EditorClassIdentifier: 
+  actor: {fileID: 6451669496612750241, guid: 6ace8310a4df17a4cb282a9981921c9c, type: 3}
+  speakerSprite: {fileID: 0}
+  sentence: 
+  dialogues:
+  - actorName: NPC
+    profile: {fileID: 21300000, guid: 25fd40ac859d0a34b80d8b94c47ef4dc, type: 3}
+    sentenceLanguage:
+      portuguese: "Ol\xE1 Mundo"
+      english: Hello World
+      spanish: Holla Mundo
+  - actorName: Player
+    profile: {fileID: 21300000, guid: 16d7dc186aa769743b835e2347a0275b, type: 3}
+    sentenceLanguage:
+      portuguese: "Ol\xE1 NPC"
+      english: Hello NPC
+      spanish: Holla NPC
