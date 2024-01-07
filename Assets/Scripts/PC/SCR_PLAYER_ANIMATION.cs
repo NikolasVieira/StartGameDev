@@ -25,6 +25,7 @@ public class SCR_PLAYER_ANIMATION : MonoBehaviour
     void Update()
     {
         OnMove();
+        OnTools();
         OnRun();
 
         if (isHitted)
@@ -38,7 +39,6 @@ public class SCR_PLAYER_ANIMATION : MonoBehaviour
         }
     }
 
-    #region movement
     void OnMove()
     {
         //Se a direção do player esta com o valor maior que 0
@@ -77,6 +77,7 @@ public class SCR_PLAYER_ANIMATION : MonoBehaviour
         {
             transform.eulerAngles = new Vector2(0, 180); //Inverte o angulo do sprite
         }
+
     }
     void OnRun()
     {
@@ -85,11 +86,26 @@ public class SCR_PLAYER_ANIMATION : MonoBehaviour
             anim.SetInteger("param_transition", 2);//Muda o parâmetro de transição para 2 (Run)
         }
     }
+    
+    void OnTools()
+    {
 
+        if (player.prop_isCutting)
+        {
+            anim.SetInteger("param_transition", 3);
+        }
 
-    #endregion
+        if (player.prop_isDigging)
+        {
+            anim.SetInteger("param_transition", 4);
+        }
 
-    #region Attack
+        if (player.prop_isWatering)
+        {
+            anim.SetInteger("param_transition", 5);
+        }
+    }
+
     public void OnHit()
     {
         if (!isHitted)
@@ -98,6 +114,7 @@ public class SCR_PLAYER_ANIMATION : MonoBehaviour
             isHitted = true;
         }
     }
+
     public void OnAttack()
     {
         Collider2D hit = Physics2D.OverlapCircle(attackPoint.position, radius, enemyLayer);
@@ -107,9 +124,9 @@ public class SCR_PLAYER_ANIMATION : MonoBehaviour
             hit.GetComponentInChildren<SCR_ENEMIE_ANIMATION>().OnHit();
         }
     }
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(attackPoint.position, radius);
     }
-    #endregion
 }
